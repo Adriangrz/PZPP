@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string Type { get; set; }
         public string Desc{ get; set; }
-        public string Cost { get; set; }
-        public string SellingPrice { get; set; }
+        public decimal Price { get; set; }
+        public bool Availability { get; set; }
     }
 }
