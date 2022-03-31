@@ -25,10 +25,10 @@ namespace EquipmentManagement.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "type_desc" : "";
-            var products = from p in _context.Products select p;
+            IQueryable<Product> products = _context.Products;
             if (!String.IsNullOrEmpty(searchString))
             {
-                products = products.Where(p => p.Name.Contains(searchString));
+                products = products.Where(p => p.Name.ToLower().Contains(searchString.ToLower()));
             }
             switch (sortOrder)
             {
