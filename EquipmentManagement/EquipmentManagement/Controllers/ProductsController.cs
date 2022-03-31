@@ -21,9 +21,28 @@ namespace EquipmentManagement.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Products.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "type_desc" : "";
+            var products = from p in _context.Products select p;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name);
+                    break;
+                case "type_desc":
+                    products = products.OrderByDescending(p => p.Type);
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Type);
+                    break;
+            }
+            return View(products);
         }
 
         // GET: Products/Details/5
