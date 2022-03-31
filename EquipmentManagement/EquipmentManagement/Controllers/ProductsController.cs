@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EquipmentManagement.Data;
 using EquipmentManagement.Models;
+using AutoMapper;
 
 namespace EquipmentManagement.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly AplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductsController(AplicationDbContext context)
+        public ProductsController(AplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Products
