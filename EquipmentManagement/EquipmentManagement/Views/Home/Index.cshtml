@@ -3,7 +3,8 @@
 }
 
 
-<div class="text-center" >
-    <h1 class="display-4">Witaj w Equipment Management system!</h1>
-    <button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Produkty", "Index", "Products")</button>
+<div class="text-center">
+    <h1>Witaj w aplikacji</h1>
+    <p>Nacisnij przycisk by zacząć</p>
+    @Html.ActionLink("Produkty", "Index", "Products",null,new {@class="btn btn-primary btn-lg"})
 </div>

@@ -21,7 +21,5 @@ body {
 }
 
 .main-content {
-    flex-grow: 1;
     background-image: url("../images/background.jpg");
-    background-color: transparent;
 }
