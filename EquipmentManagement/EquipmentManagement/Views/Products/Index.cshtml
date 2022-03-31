@@ -1,29 +1,28 @@
-﻿@model IEnumerable<EquipmentManagement.Models.Product>
+﻿@model IEnumerable<EquipmentManagement.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-@using (Html.BeginForm())
+<div class="container-fluid d-flex justify-content-between">
+<div>
+    @Html.ActionLink("Utwórz nowy", "Create", "Products",null,new {@class="btn btn-primary"})
+</div>
+@using (Html.BeginForm("Index","Products",FormMethod.Post,new { @class="d-flex w-auto" }))
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString")
-        <input type = "submit" value="Search"/>
-    </p>
+        @Html.TextBox("SearchString",null,new { @class="form-control me-2", @placeholder = "Szukaj po nazwie", @type="Search" })
+        <button class="btn btn-primary" type="submit">Szukaj</button>
 }
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm})
+                @Html.ActionLink("Nazwa", "Index", new { sortOrder = ViewBag.NameSortParm})
             </th>
             <th>
-                @Html.ActionLink("Type", "Index", new { sortOrder = ViewBag.TypeSortParm})
+                @Html.ActionLink("Typ", "Index", new { sortOrder = ViewBag.TypeSortParm})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Desc)
@@ -56,9 +55,11 @@
                 @Html.DisplayFor(modelItem => item.Availability)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <div class="btn-group btn-group-sm" role="group">
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                <a class="btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </div>
             </td>
         </tr>
 }

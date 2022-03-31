@@ -45,7 +45,8 @@ namespace EquipmentManagement.Controllers
                     products = products.OrderBy(p => p.Type);
                     break;
             }
-            return View(products);
+            var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
+            return View(resources);
         }
 
         // GET: Products/Details/5
