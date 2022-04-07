@@ -22,6 +22,7 @@ namespace EquipmentManagement.Data
                 Type = "opony",
                 Desc = "nowe opony firmy targum",
                 Price = 450,
+                Location = "B1S2",
                 Availability = true
             };
             var product2 = new Product()
@@ -31,6 +32,7 @@ namespace EquipmentManagement.Data
                 Type = "felga",
                 Desc = "nowe felgi firmy Ducato",
                 Price = 250,
+                Location = "B2S2",
                 Availability = true
             };
             var product3 = new Product()
@@ -40,6 +42,7 @@ namespace EquipmentManagement.Data
                 Type = "opony",
                 Desc = "nowe opony firmy Goodride",
                 Price = 550,
+                Location = "B1S12",
                 Availability = true
             };
             aplicationDbContext.Products.AddRange(product1, product2, product3);

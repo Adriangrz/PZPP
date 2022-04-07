@@ -15,5 +15,7 @@ namespace EquipmentManagement.Models
         public decimal Price { get; set; }
         [Display(Name = "Dostępność")]
         public bool Availability { get; set; }
+        [Display(Name = "Lokalizacja")]
+        public string Location { get; set; }
     }
 }

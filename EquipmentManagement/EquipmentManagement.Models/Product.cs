@@ -8,5 +8,6 @@
         public string Desc{ get; set; }
         public decimal Price { get; set; }
         public bool Availability { get; set; }
+        public string Location { get; set; }
     }
 }
