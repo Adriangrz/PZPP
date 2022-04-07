@@ -1,48 +1,56 @@
-﻿@model EquipmentManagement.Models.Product
+﻿@model EquipmentManagement.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
+<div class="bg-white p-3 rounded-3 w-100 flex-grow-1 mb-2 mt-2 d-flex flex-column align-items-center justify-content-center">
+    <h1 class="text-center">Szczegóły produktu:</h1>
 
-<h1>Details</h1>
-
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Desc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Desc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Availability)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Availability)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Desc)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Desc)
+            </dd>
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+            <dt class = "col-12 text-center">
+                @Html.DisplayNameFor(model => model.Availability)
+            </dt>
+            <dd class = "col-12 text-center">
+                @Html.DisplayFor(model => model.Availability)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <div class="btn-group btn-group-sm" role="group">
+            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edytuj</a>
+            <a class="btn btn-outline-primary" asp-action="Index">Wróć do listy</a>
+        </div>
+    </div>
 </div>

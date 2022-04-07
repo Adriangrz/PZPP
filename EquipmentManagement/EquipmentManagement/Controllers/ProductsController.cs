@@ -63,8 +63,8 @@ namespace EquipmentManagement.Controllers
             {
                 return NotFound();
             }
-
-            return View(product);
+            var resource = _mapper.Map<Product, ProductViewModel>(product);
+            return View(resource);
         }
 
         // GET: Products/Create
