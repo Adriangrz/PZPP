@@ -8,6 +8,7 @@ namespace EquipmentManagement.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Product, ProductViewModel>();
+            CreateMap<Product, ProductCreateOrEditViewModel>();
         }
     }
 }

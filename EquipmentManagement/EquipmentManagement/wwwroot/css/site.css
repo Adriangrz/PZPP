@@ -23,3 +23,8 @@ body {
 .main-content {
     background-image: url("../images/background.jpg");
 }
+
+.new-product-form{
+    width: 100%;
+    max-width: 400px;
+}

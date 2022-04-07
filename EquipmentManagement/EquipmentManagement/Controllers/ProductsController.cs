@@ -78,8 +78,9 @@ namespace EquipmentManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Type,Desc,Price,Availability")] Product product)
+        public async Task<IActionResult> Create([Bind("Name,Type,Desc,Price,Location,Availability")] ProductCreateOrEditViewModel productCreateOrEditViewModel)
         {
+            var product = _mapper.Map<ProductCreateOrEditViewModel, Product>(productCreateOrEditViewModel);
             if (ModelState.IsValid)
             {
                 product.Id = Guid.NewGuid();
@@ -87,7 +88,8 @@ namespace EquipmentManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            var resource = _mapper.Map<Product, ProductCreateOrEditViewModel>(product);
+            return View(resource);
         }
 
         // GET: Products/Edit/5
