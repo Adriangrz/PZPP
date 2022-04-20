@@ -160,8 +160,8 @@ namespace EquipmentManagement.Controllers
             {
                 return NotFound();
             }
-
-            return View(product);
+            var resources = _mapper.Map<Product, ProductViewModel>(product);
+            return View(resources);
         }
 
         // POST: Products/Delete/5

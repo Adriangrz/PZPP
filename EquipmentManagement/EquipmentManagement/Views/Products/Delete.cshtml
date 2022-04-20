@@ -1,4 +1,4 @@
-﻿@model EquipmentManagement.Models.Product
+﻿@model EquipmentManagement.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -33,6 +33,12 @@
         </dt>
         <dd class = "col-12 text-center">
             @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-12 text-center">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-12 text-center">
+            @Html.DisplayFor(model => model.Location)
         </dd>
         <dt class = "col-12 text-center">
             @Html.DisplayNameFor(model => model.Availability)
