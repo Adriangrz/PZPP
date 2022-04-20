@@ -4,6 +4,7 @@ namespace EquipmentManagement.Models
 {
     public class ProductCreateOrEditViewModel
     {
+        public Guid Id { get; set; }
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
         [Display(Name = "Typ")]

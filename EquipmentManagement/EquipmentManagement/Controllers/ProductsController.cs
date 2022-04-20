@@ -105,7 +105,8 @@ namespace EquipmentManagement.Controllers
             {
                 return NotFound();
             }
-            return View(product);
+            var resource = _mapper.Map<Product, ProductCreateOrEditViewModel>(product);
+            return View(resource);
         }
 
         // POST: Products/Edit/5
@@ -113,8 +114,9 @@ namespace EquipmentManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Type,Desc,Price,Availability")] Product product)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Type,Desc,Price,Location,Availability")] ProductCreateOrEditViewModel productCreateOrEditViewModel)
         {
+            var product = _mapper.Map<ProductCreateOrEditViewModel, Product>(productCreateOrEditViewModel);
             if (id != product.Id)
             {
                 return NotFound();
@@ -140,7 +142,8 @@ namespace EquipmentManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            var resource = _mapper.Map<Product, ProductCreateOrEditViewModel>(product);
+            return View(resource);
         }
 
         // GET: Products/Delete/5
