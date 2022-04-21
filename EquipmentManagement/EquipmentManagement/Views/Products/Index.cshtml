@@ -8,6 +8,9 @@
 <div class="mb-2 mb-sm-0">
     @Html.ActionLink("Utwórz nowy", "Create", "Products",null,new {@class="btn btn-primary"})
 </div>
+<div class="d-flex justify-content-evenly mb-2 mb-sm-0">
+            @Html.ActionLink("Powrót", "Index", "Home",null,new {@class="btn btn-primary"})
+        </div>
 @using (Html.BeginForm("Index","Products",FormMethod.Post,new { @class="d-flex flex-column flex-sm-row w-auto" }))
 {
         @Html.TextBox("SearchString",null,new { @class="form-control me-2 mb-2 mb-sm-0", @placeholder = "Szukaj po nazwie", @type="Search" })
@@ -115,6 +118,7 @@
                 <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
                 <a class="btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
         </div>
+        
     </div>
     }
 </div>
