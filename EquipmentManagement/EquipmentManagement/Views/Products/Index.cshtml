@@ -28,13 +28,13 @@
                 @Html.ActionLink("Typ", "Index", new { sortOrder = ViewBag.TypeSortParm})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.PriceSortParm})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Location)
+                @Html.ActionLink("Lokalizacja", "Index", new { sortOrder = ViewBag.LocationSortParm})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Availability)
+                @Html.ActionLink("Dostępność", "Index", new { sortOrder = ViewBag.AvailabilitySortParm})
             </th>
             <th></th>
         </tr>

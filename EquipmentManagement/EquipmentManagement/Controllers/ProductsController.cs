@@ -28,6 +28,9 @@ namespace EquipmentManagement.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.TypeSortParm = String.IsNullOrEmpty(sortOrder) ? "type_desc" : "";
+            ViewBag.PriceSortParm = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewBag.LocationSortParm = String.IsNullOrEmpty(sortOrder) ? "location_desc" : "";
+            ViewBag.AvailabilitySortParm = String.IsNullOrEmpty(sortOrder) ? "availability_desc" : "";
             IQueryable<Product> products = _context.Products;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -40,6 +43,15 @@ namespace EquipmentManagement.Controllers
                     break;
                 case "type_desc":
                     products = products.OrderByDescending(p => p.Type);
+                    break;
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.Price);
+                    break;
+                case "location_desc":
+                    products = products.OrderByDescending(p => p.Location);
+                    break;
+                case "availability_desc":
+                    products = products.OrderByDescending(p => p.Availability);
                     break;
                 default:
                     products = products.OrderBy(p => p.Type);
